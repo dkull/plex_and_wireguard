@@ -1,5 +1,5 @@
 # plex_and_wireguard
-How to get remote Plex working with Wireguard
+How to get remote Plex working with Wireguard (eg. ProtonVPN), and by working I mean bypass.
 
 Assuming you have your Wireguard connected.
 
