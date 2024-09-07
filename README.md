@@ -9,7 +9,7 @@ Get UID of user `plex`, 998 in my case. Set all traffic of `plex` to be marked:
 
 Send all marked traffic to `plexroute`:
 
-```sudo ip rule del fwmark 0x1 lookup plexroute```
+```sudo ip rule add pref 500 fwmark 1 table plexroute```
 
 Route all `plexroute` traffic through your physical ethernet interface:
 
