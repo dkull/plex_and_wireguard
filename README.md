@@ -11,6 +11,12 @@ Send all marked traffic to `plexroute`:
 
 ```sudo ip rule add pref 500 fwmark 1 table plexroute```
 
+Wireguard will add a new rule with a smaller value than 500 on every connect. You then have to do:
+
+```sudo ip rule del fwmark 0x1 lookup plexroute```
+
+And add the rule again with a smaller value, unless there is some more graceful way to do it.
+
 Route all `plexroute` traffic through your physical ethernet interface:
 
 ```sudo ip route add default via 192.168.1.1 dev enp0 table plexroute```
