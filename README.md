@@ -3,6 +3,12 @@ How to get remote Plex working with Wireguard (eg. ProtonVPN), and by working I 
 
 Assuming you have your Wireguard connected.
 
+Allow forwarding traffic between your physical and Wireguard interfaces:
+
+```iptables -A FORWARD -i protonvpn -o enp0 -j ACCEPT```
+
+```iptables -A FORWARD -i enp0 -o protonvpn -j ACCEPT```
+
 Get UID of user `plex`, 998 in my case. Set all traffic of `plex` to be marked:
 
 ```sudo iptables -t mangle -A OUTPUT -m owner --uid-owner 998 -d 0.0.0.0/0 -j MARK --set-mark 1```
